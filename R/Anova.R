@@ -959,12 +959,11 @@ getAnovaTable <- function(x, ...){
                      heading = paste("\nType ", x$type, if (repeated) " Repeated Measures",
                                      " MANOVA Tests: ", test, " test statistic", sep=""), 
                      class = c("anova", "data.frame"))
-  print(tests)      
-  invisible(x)
+  return(tests)      
 }
                              
 print.Anova.mlm <- function(x, ...){ 
-  test <- getAnovaTable(x)
+  tests <- getAnovaTable(x)
   print(tests)      
   invisible(x)
 }

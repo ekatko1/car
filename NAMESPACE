@@ -59,6 +59,7 @@ S3method(infIndexPlot, influence.merMod)
 S3method(infIndexPlot, influence.lme)
 S3method(whichNames, data.frame)
 S3method(whichNames, default)
+S3method(getAnovaTable, Anova.mlm)
 
 import("carData")
 importFrom("abind", "abind")

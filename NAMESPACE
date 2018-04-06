@@ -91,7 +91,7 @@ importFrom(utils, browseURL, head, methods)
 
 export(
     .carEnv,
-
+    getAnovaTable,
     basicPowerAxis,
     bcPowerAxis,
     Boxplot,

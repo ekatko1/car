@@ -964,7 +964,7 @@ getAnovaTable <- function(x, ...){
 }
                              
 print.Anova.mlm <- function(x, ...){ 
-  test <- getAnovaTable()
+  test <- getAnovaTable(x)
   print(tests)      
   invisible(x)
 }

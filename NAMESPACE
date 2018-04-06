@@ -2,7 +2,7 @@
 
 # additions for car 3.0-0, started 2016-12-27
 
-export(Import, Export, Predict, bcnPowerAxis)
+export(Import, Export, Predict, bcnPowerAxis, getAnovaTable)
 import("rio")
 export(Confint, S, carPalette, poTest, brief)
 S3method(Confint, lm)
@@ -59,7 +59,6 @@ S3method(infIndexPlot, influence.merMod)
 S3method(infIndexPlot, influence.lme)
 S3method(whichNames, data.frame)
 S3method(whichNames, default)
-S3method(getAnovaTable, Anova.mlm)
 
 import("carData")
 importFrom("abind", "abind")
@@ -91,7 +90,6 @@ importFrom(utils, browseURL, head, methods)
 
 export(
     .carEnv,
-    getAnovaTable,
     basicPowerAxis,
     bcPowerAxis,
     Boxplot,

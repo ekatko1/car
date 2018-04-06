@@ -51,6 +51,8 @@
 # 2017-11-29: further fixed to vcov() and vcov.() calls. John
 # 2018-01-15: Anova.multinom() now works with response matrix. JF
 # 2018-02-11: If there are aliased coefs in lm object, treat as GLM. JF
+# 2018-04-06: add function getAnovaTable that gets called by print.Anova.mlm. 
+#             allows custom outputs of AnovaTable (ex: via pander). EK.
 #-------------------------------------------------------------------------------
 
 # Type II and III tests for linear, generalized linear, and other models (J. Fox)
@@ -930,7 +932,7 @@ Anova.II.mlm <- function(mod, SSPE, error.df, idata, idesign, icontrasts, imatri
   result
 }
 
-print.Anova.mlm <- function(x, ...){
+get.Anova.Table <- function(x, ...){
   if ((!is.null(x$singular)) && x$singular) stop("singular error SSP matrix; multivariate tests unavailable\ntry summary(object, multivariate=FALSE)")
   test <- x$test
   repeated <- x$repeated
@@ -960,6 +962,13 @@ print.Anova.mlm <- function(x, ...){
   print(tests)      
   invisible(x)
 }
+                             
+print.Anova.mlm <- function(x, ...){ 
+  test <- get.Anova.Table()
+  print(tests)      
+  invisible(x)
+}
+  
 
 # path <-  "D:/R-package-sources/car/R"
 # files <- list.files(path, pattern=".*\\.R")

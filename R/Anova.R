@@ -932,7 +932,7 @@ Anova.II.mlm <- function(mod, SSPE, error.df, idata, idesign, icontrasts, imatri
   result
 }
 
-get.Anova.Table <- function(x, ...){
+getAnovaTable <- function(x, ...){
   if ((!is.null(x$singular)) && x$singular) stop("singular error SSP matrix; multivariate tests unavailable\ntry summary(object, multivariate=FALSE)")
   test <- x$test
   repeated <- x$repeated
@@ -964,7 +964,7 @@ get.Anova.Table <- function(x, ...){
 }
                              
 print.Anova.mlm <- function(x, ...){ 
-  test <- get.Anova.Table()
+  test <- getAnovaTable()
   print(tests)      
   invisible(x)
 }
